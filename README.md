@@ -26,7 +26,7 @@ $ <kbd>python3 food_coop_simulation.py</kbd>
 Pseudocode Reference
 ====================
 [Problem Analysis](text/problem_analysis_food_coop_simulation.md)
-[Modular Design of the Food Co-op Simulation Program](#)
+[Modular Design of the Food Co-op Simulation Program](static/food_coop_schedule_simulation.svg)
 
 
 Attribution
