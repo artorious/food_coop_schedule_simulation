@@ -27,13 +27,19 @@ for assumed probabilities of certain actions</p>
             <li>Monday–Thursday 8:00 am–6:00 pm</li>
             <li>Friday, Saturday    8:00 am–8:00 pm</li>
         </ul>
-    <dt>Time slots - every time slot is two hours long</dt>
+    <dt>Time slots - every time slot is two hours long</dt>   
         <dd>
             For example, there would be three time slots on Sundays, 
             12:00–2:00 pm, 2:00–4:00 pm, and 4:00–6:00 pm. 
         </dd>
-        <dd>Based on this, there are 35 time slots in a week.</dd>
+        <dd>Total 35 two-hour time slots. Total of 70 hours/week open.</dd>
     <dt>Membership -the co-op has 75 members.</dt>
+    <dd>
+        Each co-op member must work two hours/week. For any given time slot, 
+        there is a one in 35 (2.8%) chance that that is the slot they plan to 
+        show up for. 
+        (But then something may come up and they don’t show up as planned?)
+    </dd>
     <dt>
         Because of the different natures of the two scheduling approaches, 
         we assume different probabilities for the behaviors of members.
@@ -41,6 +47,13 @@ for assumed probabilities of certain actions</p>
         <dd>
             For the scheduled approach, we assume a probability of 15% that a 
             given member will not show up for their time slot.
+        </dd>
+        <dd>
+            In scheduled approach, workers often arrive late, or never show up, 
+            but do not leave early (since everyone knows their posted schedule).
+            In randomized approach, workers arrive on time (since their choice), 
+            but often leave early 
+            (since their schedule/current hours not known to everyone else).
         </dd>
         <dd>
             For the unscheduled approach, we assume a probability that any 
@@ -80,6 +93,30 @@ for assumed probabilities of certain actions</p>
     <dd>Probabilities of each of the actions that may occur - dictionary</dd>
     <dd>names of the days of the week - tuple </dd>
 </dl>
+<p>Assume that everyone works a consecutive two-hour block.</p>
+<dl>
+    <dt>Scheduled workers:</dt>
+        <dd>Chance of arriving 15 minutes late is 35%.</dd>
+        <dd>Chance of arriving 30 minutes late is 15%.</dd>
+        <dd>Chance of arriving 45 minutes late is  7%.</dd>
+        <dd>Chance of arriving 60 minutes late is 3%.</dd>
+        <dd>Chance of arriving 75 minutes late is 1%.</dd>
+        <dd>Chance of arriving 90 minutes or later is nominal.</dd>
+        <dd>Chance of leaving 15 minutes early is 10%</dd>
+        <dd>Chance of leaving 30 minutes early is 3%</dd>
+        <dd>Chance of leaving 45 or more minutes early is nominal</dd>
+        <dd>Chance of not showing up is 20%.</dd>
+    <dt>Unscheduled workers:</dt>
+        <dd>
+            Chance that they planned to work a given time slot, 1 in 35 (~ 3%) 
+            for each of 45 members
+        </dd>
+        <dd>Chance of arriving 15 minutes late is 10%</dd>
+        <dd>Change of arriving 30 minutes late is 5%</dd>
+        <dd>Chance of leaving 15 minutes early is 24%.</dd>
+        <dd>Chance of leaving 30 minutes early is 8%.</dd>
+        <dd>Chance of leaving 45 minutes early or more is nominal.</dd>
+</dl>
 
 <pre>
     <code>
@@ -101,7 +138,7 @@ for assumed probabilities of certain actions</p>
             'come_late_45_min': 1,
             'close_early_15_min': 10, 
             'close_early_30_min': 3,
-            'no_show_unsched': 5}
+            'showup_unsched': 5}
     </code>
 </pre>
 <p>
@@ -111,7 +148,7 @@ for assumed probabilities of certain actions</p>
     <code>close_early_15_min</code>, <code>close_early_30_min</code> contain 
     the chances that a worker will leave 15 or 30 minutes early, respectively; 
     <code>no_show_sched</code> contains the chance that a scheduled worker will 
-    not show up for their time slot; <code>no_show_unsched</code> is the chance 
+    not show up for their time slot; <code>showup_unsched</code> is the chance 
     that an unscheduled worker will decide to show up to work.
 </p>
 
@@ -125,3 +162,7 @@ for assumed probabilities of certain actions</p>
     For the assumed probability of each of these actions, a random number 
     will be generated for simulating whether each event has occurred or not.
 </p>
+
+
+
+
